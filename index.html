@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10150f" />
+
+  <title>HighCraft W/ The Boys</title>
+  <meta
+    name="description"
+    content="HighCraft W/ The Boys — a long-term Minecraft survival series, community world, and home for Otters MC Studios projects."
+  />
+
+  <style>
+    :root {
+      --bg: #0d120c;
+      --bg-soft: #121a11;
+      --panel: #182217;
+      --panel-2: #1e2b1c;
+      --green: #78c850;
+      --green-bright: #a0ea73;
+      --gold: #e8bd56;
+      --red: #db6a61;
+      --blue: #71aee8;
+      --stone: #c6c8bc;
+      --text: #f4f5ec;
+      --muted: #aeb8a8;
+      --border: rgba(255,255,255,.09);
+      --border-green: rgba(120,200,80,.28);
+      --shadow: rgba(0,0,0,.34);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background:
+        linear-gradient(rgba(9, 13, 8, .94), rgba(9, 13, 8, .98)),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 31px,
+          rgba(255,255,255,.018) 32px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 31px,
+          rgba(255,255,255,.018) 32px
+        ),
+        var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 38px;
+    }
+
+    .section-heading small {
+      display: block;
+      color: var(--green);
+      font-size: .76rem;
+      font-weight: 950;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin-top: 8px;
+      max-width: 850px;
+      font-size: clamp(2.1rem, 5vw, 3.7rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    .section-heading p {
+      max-width: 740px;
+      margin-top: 16px;
+      color: var(--muted);
+    }
+
+    /* NAV */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 9, .88);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.08rem;
+      font-weight: 950;
+      letter-spacing: -.035em;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      color: #0c120b;
+      background: var(--green);
+      box-shadow:
+        inset 0 -5px rgba(0,0,0,.16),
+        0 5px 15px rgba(0,0,0,.24);
+    }
+
+    .brand-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 800;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-bright);
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      min-height: 82vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      padding: 94px 0 76px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 660px;
+      height: 660px;
+      top: 0;
+      right: -250px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: rgba(120,200,80,.08);
+      filter: blur(90px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-green);
+      border-radius: 7px;
+      color: var(--green-bright);
+      background: rgba(120,200,80,.08);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 860px;
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      line-height: .88;
+      letter-spacing: -.07em;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--green);
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: .9rem;
+      font-weight: 900;
+      transition:
+        transform .18s ease,
+        background .18s ease,
+        border-color .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #0d120c;
+      background: var(--green);
+      box-shadow: inset 0 -5px rgba(0,0,0,.15);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(255,255,255,.035);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background:
+        linear-gradient(145deg, rgba(120,200,80,.09), rgba(255,255,255,.018)),
+        var(--panel);
+      box-shadow: 0 30px 80px var(--shadow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(255,255,255,.035);
+      border-radius: 5px;
+      pointer-events: none;
+    }
+
+    .server-label {
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .server-status {
+      margin-top: 8px;
+      font-size: 1.8rem;
+      font-weight: 950;
+      letter-spacing: -.04em;
+    }
+
+    .online-dot {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin-right: 7px;
+      border-radius: 50%;
+      background: var(--green-bright);
+      box-shadow: 0 0 16px var(--green);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .hero-stat {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(0,0,0,.14);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.4rem;
+    }
+
+    .hero-stat span {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .card-number {
+      margin-bottom: 18px;
+      color: var(--green);
+      font-size: .74rem;
+      font-weight: 950;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.24rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    /* PROJECTS */
+
+    .projects-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 75% 15%, rgba(120,200,80,.07), transparent 30%),
+        var(--bg-soft);
+    }
+
+    .studio-banner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 28px;
+      padding: 22px;
+      border: 1px solid var(--border-green);
+      border-radius: 9px;
+      background: rgba(120,200,80,.055);
+    }
+
+    .studio-banner strong {
+      display: block;
+      font-size: 1.1rem;
+    }
+
+    .studio-banner p {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 0 0 24px;
+    }
+
+    .filter-btn {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      cursor: pointer;
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+      font-size: .78rem;
+      font-weight: 850;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: #0d120c;
+      border-color: var(--green);
+      background: var(--green);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .project-card {
+      min-height: 290px;
+      display: flex;
+      flex-direction: column;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background:
+        linear-gradient(160deg, rgba(255,255,255,.033), transparent 38%),
+        var(--panel);
+      transition:
+        transform .18s ease,
+        border-color .18s ease,
+        background .18s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(120,200,80,.3);
+      background:
+        linear-gradient(160deg, rgba(120,200,80,.06), transparent 42%),
+        var(--panel);
+    }
+
+    .project-card.hidden {
+      display: none;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 17px;
+    }
+
+    .project-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--panel-2);
+      font-size: 1.25rem;
+    }
+
+    .project-type {
+      color: var(--green);
+      font-size: .67rem;
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      line-height: 1.15;
+    }
+
+    .project-card p {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 17px;
+    }
+
+    .tag {
+      padding: 5px 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--stone);
+      background: rgba(255,255,255,.02);
+      font-size: .66rem;
+      font-weight: 750;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
+    .project-link {
+      color: var(--green-bright);
+      font-size: .8rem;
+      font-weight: 900;
+    }
+
+    .project-status {
+      color: var(--muted);
+      font-size: .68rem;
+      font-weight: 800;
+    }
+
+    .highcraft-chip {
+      color: var(--gold);
+    }
+
+    .project-note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    /* HIGHCRAFT STACK */
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .stack-item {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--panel);
+    }
+
+    .stack-item span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green);
+      font-size: .67rem;
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .stack-item h3 {
+      font-size: 1rem;
+    }
+
+    .stack-item p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    /* SEASON */
+
+    .season {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .season-banner {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 44px;
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+    }
+
+    .season-big {
+      padding-right: 30px;
+      border-right: 1px solid var(--border);
+    }
+
+    .season-number {
+      color: var(--gold);
+      font-size: .76rem;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .season-big h3 {
+      margin-top: 8px;
+      font-size: 2.35rem;
+      line-height: 1;
+    }
+
+    .season-big p {
+      margin-top: 15px;
+      color: var(--muted);
+    }
+
+    .progression {
+      display: grid;
+      gap: 12px;
+    }
+
+    .progress-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: rgba(255,255,255,.02);
+    }
+
+    .progress-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 4px;
+      background: rgba(120,200,80,.12);
+    }
+
+    .progress-item strong {
+      display: block;
+      font-size: .9rem;
+    }
+
+    .progress-item span {
+      display: block;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    /* CHAPTERS */
+
+    .chapters {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+    }
+
+    .chapter {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background:
+        linear-gradient(160deg, rgba(255,255,255,.034), transparent),
+        var(--panel);
+    }
+
+    .chapter-id {
+      color: var(--green);
+      font-size: .68rem;
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .chapter h3 {
+      margin-top: 12px;
+      font-size: 1.15rem;
+    }
+
+    .chapter p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .chapter-tag {
+      margin-top: 22px;
+      color: var(--stone);
+      font-size: .71rem;
+      font-weight: 850;
+    }
+
+    /* PLAYERS */
+
+    .players {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .player {
+      padding: 22px 12px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--panel);
+    }
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 14px;
+      border-radius: 7px;
+      background: var(--panel-2);
+      font-size: 2rem;
+    }
+
+    .player h3 {
+      font-size: .94rem;
+    }
+
+    .player span {
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    /* PHILOSOPHY */
+
+    .quote-section {
+      text-align: center;
+    }
+
+    .big-quote {
+      max-width: 920px;
+      margin: auto;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 950;
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .big-quote span {
+      color: var(--green);
+    }
+
+    .big-quote-sub {
+      max-width: 650px;
+      margin: 24px auto 0;
+      color: var(--muted);
+    }
+
+    /* RULES */
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .rule {
+      display: flex;
+      gap: 18px;
+      padding: 19px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rule-number {
+      color: var(--green);
+      font-weight: 950;
+    }
+
+    .rule p {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    /* CTA */
+
+    .cta-box {
+      padding: 60px 30px;
+      text-align: center;
+      border: 1px solid var(--border-green);
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(120,200,80,.13), transparent 55%),
+        var(--panel);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: .95;
+      letter-spacing: -.06em;
+    }
+
+    .cta-box p {
+      max-width: 650px;
+      margin: 18px auto 30px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .players {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .season-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .season-big {
+        padding-right: 0;
+        padding-bottom: 28px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .chapters {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        position: relative;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      h1 {
+        font-size: clamp(3.5rem, 17vw, 5rem);
+      }
+
+      section {
+        padding: 66px 0;
+      }
+
+      .project-grid,
+      .stack-grid,
+      .chapters,
+      .rules-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .players {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .studio-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .studio-banner .btn {
+        width: 100%;
+      }
+
+      .season-banner {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#">
+        <div class="brand-icon">H</div>
+        <div class="brand-copy">
+          HIGHCRAFT
+          <span>W/ The Boys</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#season">Season</a>
+        <a href="#chapters">Curriculum</a>
+        <a href="#players">The Boys</a>
+        <a href="#rules">Rules</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="eyebrow">Survival • Civilization • Chaos • Custom Tech</div>
+
+          <h1>
+            HighCraft
+            <span>W/ The Boys.</span>
+          </h1>
+
+          <p class="hero-copy">
+            One Minecraft world. A bunch of friends. No speedrunning.
+            HighCraft is a long-term survival series where we build towns,
+            establish kingdoms, explore the world, start businesses,
+            fight bosses, create ridiculous infrastructure, and slowly turn
+            a random seed into our own history.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#season" class="btn btn-primary">Enter HighCraft</a>
+            <a href="#projects" class="btn btn-secondary">Explore Our Projects</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="server-label">HighCraft World Status</div>
+
+          <div class="server-status">
+            <span class="online-dot"></span>
+            The World Begins
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>6–10+</strong>
+              <span>Players</span>
+            </div>
+
+            <div class="hero-stat">
+              <strong>01</strong>
+              <span>Shared World</span>
+            </div>
+
+            <div class="hero-stat">
+              <strong>15+</strong>
+              <span>Studio Projects</span>
+            </div>
+
+            <div class="hero-stat">
+              <strong>∞</strong>
+              <span>Bad Decisions</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>The Project</small>
+          <h2>A Minecraft world built to become a history.</h2>
+          <p>
+            HighCraft uses a loose curriculum to keep the world moving
+            without scripting the outcome. The project also lives alongside
+            the Minecraft mods, server software, tools, shaders, and voxel
+            experiments built under Otters MC Studios.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <div class="card-number">01 / BUILD</div>
+            <h3>Create a Civilization</h3>
+            <p>
+              Start with a tiny camp and gradually develop towns, roads,
+              farms, industries, kingdoms, ports, monuments, and megaprojects.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">02 / EXPLORE</div>
+            <h3>Leave Home</h3>
+            <p>
+              Expeditions send the group into caves, ancient cities,
+              oceans, distant biomes, the Nether, the End, and whatever
+              horrible idea somebody suggests next.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">03 / INVENT</div>
+            <h3>Build Around Minecraft</h3>
+            <p>
+              Server panels, Fabric mods, companion tools, shaders, texture
+              editors, and experiments all live in the same wider ecosystem.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section class="projects-section" id="projects">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>Otters MC Studios</small>
+          <h2>The projects behind and around HighCraft.</h2>
+          <p>
+            Minecraft is bigger than the world itself. These are the server
+            tools, mods, utilities, and experiments built under the same
+            studio umbrella.
+          </p>
+        </div>
+
+        <div class="studio-banner">
+          <div>
+            <strong>Minecraft-Stuffs Project Hub</strong>
+            <p>
+              The central index for Otters MC Studios. Projects live in their
+              own repositories while the hub ties the collection together.
+            </p>
+          </div>
+
+          <a
+            class="btn btn-secondary"
+            href="https://github.com/Otterdays/Minecraft-Stuffs"
+            target="_blank"
+            rel="noopener"
+          >
+            Open Project Hub ↗
+          </a>
+        </div>
+
+        <div class="filter-row" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="server">Server Tech</button>
+          <button class="filter-btn" data-filter="mod">Mods & Plugins</button>
+          <button class="filter-btn" data-filter="tool">Tools & Assets</button>
+          <button class="filter-btn" data-filter="game">Games & Voxel</button>
+          <button class="filter-btn" data-filter="highcraft">HighCraft Picks</button>
+        </div>
+
+        <div class="project-grid" id="projectGrid"></div>
+
+        <p class="project-note">
+          Project cards are generated from the <code>projects</code> array at the
+          bottom of this file. Add or edit one object there and the gallery updates automatically.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- POSSIBLE HIGHCRAFT STACK -->
+
+    <section id="stack">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>HighCraft Tech</small>
+          <h2>Projects that naturally fit this world.</h2>
+          <p>
+            These are not presented as mandatory dependencies. They are the
+            strongest candidates from the studio for supporting, expanding,
+            documenting, or visually shaping HighCraft.
+          </p>
+        </div>
+
+        <div class="stack-grid">
+          <div class="stack-item">
+            <span>Server</span>
+            <h3>BlockPanel V3</h3>
+            <p>Run and manage Java or Bedrock servers from a self-hosted control plane.</p>
+          </div>
+
+          <div class="stack-item">
+            <span>Gameplay</span>
+            <h3>Minecraft Civ Remixed</h3>
+            <p>Economy, jobs, wallets, and payouts that line up with the civilization theme.</p>
+          </div>
+
+          <div class="stack-item">
+            <span>Companion</span>
+            <h3>MC Companion Map</h3>
+            <p>A phone-based overhead map companion using a local HTTP API over LAN.</p>
+          </div>
+
+          <div class="stack-item">
+            <span>Visuals</span>
+            <h3>McOtterShaders</h3>
+            <p>Custom shader work for giving the HighCraft world its own visual identity.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CURRENT SEASON -->
+
+    <section class="season" id="season">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>Current Era</small>
+          <h2>Season One: The Boys Arrive</h2>
+        </div>
+
+        <div class="season-banner">
+
+          <div class="season-big">
+            <div class="season-number">Season 01</div>
+            <h3>The Beginning</h3>
+            <p>
+              Before kingdoms, highways, economies, custom tools, and giant
+              monuments, there is nothing but a group of idiots standing
+              around punching trees.
+            </p>
+          </div>
+
+          <div class="progression">
+            <div class="progress-item">
+              <div class="progress-icon">🌲</div>
+              <div>
+                <strong>The First Night</strong>
+                <span>Survive and establish the original camp.</span>
+              </div>
+            </div>
+
+            <div class="progress-item">
+              <div class="progress-icon">🏠</div>
+              <div>
+                <strong>The Settlement</strong>
+                <span>Build homes and establish HighCraft.</span>
+              </div>
+            </div>
+
+            <div class="progress-item">
+              <div class="progress-icon">⛏️</div>
+              <div>
+                <strong>The Resource Rush</strong>
+                <span>Mining, equipment, and specialization begin.</span>
+              </div>
+            </div>
+
+            <div class="progress-item">
+              <div class="progress-icon">🔥</div>
+              <div>
+                <strong>The Nether</strong>
+                <span>The first truly dangerous group expedition.</span>
+              </div>
+            </div>
+
+            <div class="progress-item">
+              <div class="progress-icon">🐉</div>
+              <div>
+                <strong>The End</strong>
+                <span>Eventually, the boys go after the dragon.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRICULUM -->
+
+    <section id="chapters">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>The Curriculum</small>
+          <h2>How the world evolves.</h2>
+          <p>
+            Chapters guide progression but do not determine exactly how we
+            play them. Each stage creates new reasons to work together,
+            compete, explore, trade, or cause problems.
+          </p>
+        </div>
+
+        <div class="chapters">
+
+          <div class="chapter">
+            <div>
+              <div class="chapter-id">Chapter 01</div>
+              <h3>The First Night</h3>
+              <p>Food, shelter, iron, beds, and the original Boys' Lodge.</p>
+            </div>
+            <div class="chapter-tag">SURVIVAL</div>
+          </div>
+
+          <div class="chapter">
+            <div>
+              <div class="chapter-id">Chapter 02</div>
+              <h3>The Settlement</h3>
+              <p>Permanent homes, public spaces, and the first town.</p>
+            </div>
+            <div class="chapter-tag">CIVILIZATION</div>
+          </div>
+
+          <div class="chapter">
+            <div>
+              <div class="chapter-id">Chapter 03</div>
+              <h3>Resource Rush</h3>
+              <p>Mining operations, equipment, and resource competition.</p>
+            </div>
+            <div class="chapter-tag">EXPANSION</div>
+          </div>
+
+          <div class="chapter">
+            <div>
+              <div class="chapter-id">Chapter 04</div>
+              <h3>Infrastructure</h3>
+              <p>Roads, bridges, railways, ports, and transportation.</p>
+            </div>
+            <div class="chapter-tag">CONNECTION</div>
+          </div>
+
+          <div class="chapter">
+            <div>
+              <div class="chapter-id">Chapter 05</div>
+              <h3>The Economy</h3>
+              <p>Businesses, trading, shops, jobs, and questionable capitalism.</p>
+            </div>
+            <div class="chapter-tag">COMMERCE</div>
+          </div>
+
+          <div class="chapter">
+            <div>
+              <div class="chapter-id">Chapter 06</div>
+              <h3>The Nether</h3>
+              <p>Fortresses, bastions, and the HighCraft Nether network.</p>
+            </div>
+            <div class="chapter-tag">EXPEDITION</div>
+          </div>
+
+          <div class="chapter">
+            <div>
+              <div class="chapter-id">Chapter 07</div>
+              <h3>Magic & Technology</h3>
+              <p>Enchantments, potions, redstone, automation, and custom tools.</p>
+            </div>
+            <div class="chapter-tag">INDUSTRY</div>
+          </div>
+
+          <div class="chapter">
+            <div>
+              <div class="chapter-id">Chapter 08+</div>
+              <h3>The Age of HighCraft</h3>
+              <p>Kingdoms, politics, exploration, the End, Elytra, and megaprojects.</p>
+            </div>
+            <div class="chapter-tag">CHAOS</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAYERS -->
+
+    <section id="players">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>The Crew</small>
+          <h2>The Boys.</h2>
+          <p>
+            Replace the placeholders with usernames, skins, specialties,
+            quotes, deaths, businesses, kingdoms, and whatever each player
+            becomes infamous for.
+          </p>
+        </div>
+
+        <div class="players">
+          <div class="player">
+            <div class="avatar">⛏️</div>
+            <h3>Player One</h3>
+            <span>The Miner</span>
+          </div>
+
+          <div class="player">
+            <div class="avatar">🏰</div>
+            <h3>Player Two</h3>
+            <span>The Builder</span>
+          </div>
+
+          <div class="player">
+            <div class="avatar">⚙️</div>
+            <h3>Player Three</h3>
+            <span>The Engineer</span>
+          </div>
+
+          <div class="player">
+            <div class="avatar">🗺️</div>
+            <h3>Player Four</h3>
+            <span>The Explorer</span>
+          </div>
+
+          <div class="player">
+            <div class="avatar">💎</div>
+            <h3>Player Five</h3>
+            <span>The Merchant</span>
+          </div>
+
+          <div class="player">
+            <div class="avatar">⚔️</div>
+            <h3>Player Six</h3>
+            <span>The Warrior</span>
+          </div>
+
+          <div class="player">
+            <div class="avatar">🌾</div>
+            <h3>Player Seven</h3>
+            <span>The Farmer</span>
+          </div>
+
+          <div class="player">
+            <div class="avatar">📖</div>
+            <h3>Player Eight</h3>
+            <span>The Historian</span>
+          </div>
+
+          <div class="player">
+            <div class="avatar">🧪</div>
+            <h3>Player Nine</h3>
+            <span>The Alchemist</span>
+          </div>
+
+          <div class="player">
+            <div class="avatar">💀</div>
+            <h3>Player Ten</h3>
+            <span>The Problem</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+
+    <section class="quote-section">
+      <div class="container">
+        <div class="big-quote">
+          Create situations.
+          <span>Don't script outcomes.</span>
+        </div>
+
+        <p class="big-quote-sub">
+          The best HighCraft moments should not be planned. The curriculum,
+          tools, and projects exist to create opportunities for something
+          memorable to happen.
+        </p>
+      </div>
+    </section>
+
+    <!-- RULES -->
+
+    <section id="rules">
+      <div class="container">
+
+        <div class="section-heading">
+          <small>Server Philosophy</small>
+          <h2>The important rules.</h2>
+        </div>
+
+        <div class="rules-grid">
+
+          <div class="rule">
+            <div class="rule-number">01</div>
+            <div>
+              <strong>Don't speedrun the world.</strong>
+              <p>Progression is part of the story. We do not need Elytra twelve minutes after spawning.</p>
+            </div>
+          </div>
+
+          <div class="rule">
+            <div class="rule-number">02</div>
+            <div>
+              <strong>Preserve old builds.</strong>
+              <p>Today's horrible starter shack becomes tomorrow's historical landmark.</p>
+            </div>
+          </div>
+
+          <div class="rule">
+            <div class="rule-number">03</div>
+            <div>
+              <strong>Build things involving other players.</strong>
+              <p>Roads, businesses, arenas, towns, and events make the server feel alive.</p>
+            </div>
+          </div>
+
+          <div class="rule">
+            <div class="rule-number">04</div>
+            <div>
+              <strong>Let people specialize.</strong>
+              <p>Not everybody needs to be the miner, builder, engineer, explorer, and merchant.</p>
+            </div>
+          </div>
+
+          <div class="rule">
+            <div class="rule-number">05</div>
+            <div>
+              <strong>Document the stupid stuff.</strong>
+              <p>Screenshots, books, graves, museums, and monuments turn accidents into lore.</p>
+            </div>
+          </div>
+
+          <div class="rule">
+            <div class="rule-number">06</div>
+            <div>
+              <strong>Chaos is allowed.</strong>
+              <p>The point is not perfect efficiency. The point is creating a world nobody else could have made.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+
+    <section>
+      <div class="container">
+        <div class="cta-box">
+          <h2>One world.<br />Years of bullshit.</h2>
+
+          <p>
+            Eventually the map should be covered in towns, abandoned mines,
+            kingdoms, monuments, graveyards, railways, custom projects,
+            giant builds, and stories that only make sense to the people who
+            were there.
+          </p>
+
+          <div class="hero-actions" style="justify-content:center;">
+            <a href="#season" class="btn btn-primary">Welcome to HighCraft</a>
+            <a
+              href="https://github.com/Otterdays/Minecraft-Stuffs"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-secondary"
+            >
+              Otters MC Studios ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>HighCraft W/ The Boys</span>
+      <span>Otters MC Studios · Built by the boys. Probably destroyed by the boys.</span>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      ================================================================
+      PROJECT DATA
+      ================================================================
+      To add a new repo later:
+      1. Copy one object.
+      2. Change its values.
+      3. Choose category: server | mod | tool | game
+      4. Set highcraft: true if you want it in "HighCraft Picks".
+    */
+
+    const projects = [
+      {
+        name: "BlockPanel V3",
+        category: "server",
+        type: "Server Panel",
+        icon: "🖥️",
+        description:
+          "Self-hosted Minecraft control plane for Java and Bedrock servers using Elixir, Phoenix LiveView, and PostgreSQL.",
+        tags: ["Elixir", "Phoenix", "LiveView", "PostgreSQL"],
+        url: "https://github.com/Otterdays/Block-Panel-V3",
+        status: "Current generation",
+        highcraft: true
+      },
+      {
+        name: "BlockPanel V2 Public",
+        category: "server",
+        type: "Windows App",
+        icon: "🧊",
+        description:
+          "Public Windows distribution of the native BlockPanel server manager with console control, JAR management, and Modrinth browsing.",
+        tags: ["Tauri", "Rust", "Windows", "Modrinth"],
+        url: "https://github.com/Otterdays/Block-Panel-V2-Public",
+        status: "Portable release",
+        highcraft: true
+      },
+      {
+        name: "Otter's Den Server",
+        category: "server",
+        type: "Server Site",
+        icon: "🦦",
+        description:
+          "GitHub Pages community site for the Otter's Den Minecraft survival server.",
+        tags: ["Server", "GitHub Pages", "HTML"],
+        url: "https://github.com/Otterdays/Otters-Den-Server",
+        status: "Community project",
+        highcraft: false
+      },
+      {
+        name: "Minecraft Civ Remixed",
+        category: "mod",
+        type: "Fabric Mod",
+        icon: "🏛️",
+        description:
+          "Civilization and economy add-on with wallets, jobs, onboarding, and optional mining or combat payouts.",
+        tags: ["Fabric", "Economy", "Jobs", "Java"],
+        url: "https://github.com/Otterdays/Minecraft-Civ-Remixed",
+        status: "Gameplay system",
+        highcraft: true
+      },
+      {
+        name: "MC Companion Map",
+        category: "mod",
+        type: "Fabric + Android",
+        icon: "🗺️",
+        description:
+          "Minecraft mod with a local HTTP API and an Android overhead map companion designed to work over LAN.",
+        tags: ["Fabric", "Android", "HTTP API", "LAN"],
+        url: "https://github.com/Otterdays/MC-Companion-Map",
+        status: "Companion tech",
+        highcraft: true
+      },
+      {
+        name: "Mc Core Mod",
+        category: "mod",
+        type: "Core Library",
+        icon: "🧱",
+        description:
+          "Shared Fabric core library with services, event hooks, ready-state dispatch, and update-checking support.",
+        tags: ["Fabric", "Library", "Events", "Java"],
+        url: "https://github.com/Otterdays/Mc-Core-Mod",
+        status: "Foundation",
+        highcraft: true
+      },
+      {
+        name: "MC Helpy Helper",
+        category: "mod",
+        type: "Fabric Mod",
+        icon: "❔",
+        description:
+          "Turns Minecraft's /help command into a searchable command browser instead of a wall of text.",
+        tags: ["Fabric", "UX", "Commands", "Java"],
+        url: "https://github.com/Otterdays/MC-Helpy-Helper",
+        status: "Utility mod",
+        highcraft: false
+      },
+      {
+        name: "Advancement Fix",
+        category: "mod",
+        type: "Client Mod",
+        icon: "🏆",
+        description:
+          "Client-side Fabric quality-of-life mod that enlarges the vanilla Advancements screen without replacing advancement data.",
+        tags: ["Fabric", "Client-side", "QoL", "Java"],
+        url: "https://github.com/Otterdays/advancement-fix",
+        status: "QoL mod",
+        highcraft: false
+      },
+      {
+        name: "Feeshman Deelux",
+        category: "mod",
+        type: "Fabric Mod",
+        icon: "🎣",
+        description:
+          "Auto-fishing project with HUD overlays, fishing statistics, and achievements for Minecraft 1.20.1.",
+        tags: ["Fabric", "1.20.1", "Fishing", "HUD"],
+        url: "https://github.com/Otterdays/Feeshman-Deelux",
+        status: "Experimental mod",
+        highcraft: false
+      },
+      {
+        name: "ChipperChopper",
+        category: "mod",
+        type: "Fabric Mod",
+        icon: "🪓",
+        description:
+          "Autonomous AI-oriented tree harvesting project with a live monitoring HUD for Minecraft 1.20.1.",
+        tags: ["Fabric", "AI", "Automation", "HUD"],
+        url: "https://github.com/Otterdays/ChipperChopper",
+        status: "Experimental mod",
+        highcraft: false
+      },
+      {
+        name: "PaperMC Plugins",
+        category: "mod",
+        type: "Plugin Template",
+        icon: "📜",
+        description:
+          "Minimal Paper plugin scaffold using Gradle Kotlin and the modern Paper API line.",
+        tags: ["Paper", "Kotlin", "Gradle", "Server"],
+        url: "https://github.com/Otterdays/PaperMC-Plugins",
+        status: "Template",
+        highcraft: true
+      },
+      {
+        name: "Fabric Sample Mod",
+        category: "mod",
+        type: "Mod Template",
+        icon: "🧪",
+        description:
+          "Personal ready-to-build Fabric starter project for quickly spinning up new Minecraft mods.",
+        tags: ["Fabric", "Template", "Java", "Starter"],
+        url: "https://github.com/Otterdays/Minecraft-Fabric-Sample-Mod",
+        status: "Template",
+        highcraft: false
+      },
+      {
+        name: "McOtterShaders",
+        category: "tool",
+        type: "Shader Pack",
+        icon: "✨",
+        description:
+          "Custom Minecraft shader work for OptiFine and Iris with GLSL source and project documentation.",
+        tags: ["GLSL", "OptiFine", "Iris", "Visuals"],
+        url: "https://github.com/Otterdays/McOtterShaders",
+        status: "Visual project",
+        highcraft: true
+      },
+      {
+        name: "MC Texture Maker",
+        category: "tool",
+        type: "Desktop Tool",
+        icon: "🎨",
+        description:
+          "Python texture and skin editor using CustomTkinter with 3D preview tooling.",
+        tags: ["Python", "CustomTkinter", "Textures", "3D Preview"],
+        url: "https://github.com/Otterdays/MC-Texture-Maker",
+        status: "Creator tool",
+        highcraft: true
+      },
+      {
+        name: "A Voxel Christmas",
+        category: "game",
+        type: "Voxel Game",
+        icon: "❄️",
+        description:
+          "Procedural Three.js winter scene with voxel terrain, particles, post-processing, and an optional .NET/WebView2 Windows shell.",
+        tags: ["Three.js", "WebGL", ".NET", "Voxel"],
+        url: "https://github.com/Otterdays/GAME-A-Voxel-Christmas",
+        status: "Playable alpha",
+        highcraft: false
+      }
+    ];
+
+    const projectGrid = document.getElementById("projectGrid");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+    function renderProjects(filter = "all") {
+      projectGrid.innerHTML = "";
+
+      const filtered = projects.filter(project => {
+        if (filter === "all") return true;
+        if (filter === "highcraft") return project.highcraft;
+        return project.category === filter;
+      });
+
+      filtered.forEach(project => {
+        const card = document.createElement("article");
+        card.className = "project-card";
+
+        const tags = project.tags
+          .map(tag => `<span class="tag">${tag}</span>`)
+          .join("");
+
+        const highcraft = project.highcraft
+          ? `<span class="project-status highcraft-chip">◆ HighCraft Pick</span>`
+          : `<span class="project-status">${project.status}</span>`;
+
+        card.innerHTML = `
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">${project.icon}</div>
+            <div class="project-type">${project.type}</div>
+          </div>
+
+          <h3>${project.name}</h3>
+          <p>${project.description}</p>
+
+          <div class="tags">${tags}</div>
+
+          <div class="project-footer">
+            <a
+              class="project-link"
+              href="${project.url}"
+              target="_blank"
+              rel="noopener"
+            >
+              GitHub ↗
+            </a>
+            ${highcraft}
+          </div>
+        `;
+
+        projectGrid.appendChild(card);
+      });
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        renderProjects(button.dataset.filter);
+      });
+    });
+
+    renderProjects();
+  </script>
+
+</body>
+</html>
