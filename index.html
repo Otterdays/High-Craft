@@ -574,7 +574,7 @@
 
     .stack-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
 
@@ -1040,7 +1040,7 @@
           <p>
             HighCraft uses a loose curriculum to keep the world moving
             without scripting the outcome. The project also lives alongside
-            the Minecraft mods, server software, tools, shaders, and voxel
+            the Minecraft mods, server software, tools, and voxel
             experiments built under Otters MC Studios.
           </p>
         </div>
@@ -1069,7 +1069,7 @@
             <div class="card-number">03 / INVENT</div>
             <h3>Build Around Minecraft</h3>
             <p>
-              Server panels, Fabric mods, companion tools, shaders, texture
+              Custom server tools, Fabric mods, companion apps, texture
               editors, and experiments all live in the same wider ecosystem.
             </p>
           </div>
@@ -1142,15 +1142,15 @@
           <p>
             These are not presented as mandatory dependencies. They are the
             strongest candidates from the studio for supporting, expanding,
-            documenting, or visually shaping HighCraft.
+            or documenting HighCraft.
           </p>
         </div>
 
         <div class="stack-grid">
           <div class="stack-item">
             <span>Server</span>
-            <h3>BlockPanel V3</h3>
-            <p>Run and manage Java or Bedrock servers from a self-hosted control plane.</p>
+            <h3>Custom Server Tool</h3>
+            <p>A private, unnamed in-house manager for the HighCraft world. Not a public product — just the box that keeps the server running.</p>
           </div>
 
           <div class="stack-item">
@@ -1166,9 +1166,21 @@
           </div>
 
           <div class="stack-item">
-            <span>Visuals</span>
-            <h3>McOtterShaders</h3>
-            <p>Custom shader work for giving the HighCraft world its own visual identity.</p>
+            <span>Fishing</span>
+            <h3>Feeshman Deelux</h3>
+            <p>Auto-fishing, HUD overlays, stats, and achievements for long sessions on the shared world.</p>
+          </div>
+
+          <div class="stack-item">
+            <span>Utility</span>
+            <h3>MC Helpy Helper</h3>
+            <p>Turns /help into a searchable command browser instead of a wall of text.</p>
+          </div>
+
+          <div class="stack-item">
+            <span>Advancements</span>
+            <h3>Advancement Fix</h3>
+            <p>Enlarges the vanilla Advancements screen so the world's progress is actually readable.</p>
           </div>
         </div>
 
@@ -1549,18 +1561,6 @@
 
     const projects = [
       {
-        name: "BlockPanel V3",
-        category: "server",
-        type: "Server Panel",
-        icon: "🖥️",
-        description:
-          "Self-hosted Minecraft control plane for Java and Bedrock servers using Elixir, Phoenix LiveView, and PostgreSQL.",
-        tags: ["Elixir", "Phoenix", "LiveView", "PostgreSQL"],
-        url: "https://github.com/Otterdays/Block-Panel-V3",
-        status: "Current generation",
-        highcraft: true
-      },
-      {
         name: "BlockPanel V2 Public",
         category: "server",
         type: "Windows App",
@@ -1570,7 +1570,7 @@
         tags: ["Tauri", "Rust", "Windows", "Modrinth"],
         url: "https://github.com/Otterdays/Block-Panel-V2-Public",
         status: "Portable release",
-        highcraft: true
+        highcraft: false
       },
       {
         name: "Otter's Den Server",
@@ -1630,7 +1630,7 @@
         tags: ["Fabric", "UX", "Commands", "Java"],
         url: "https://github.com/Otterdays/MC-Helpy-Helper",
         status: "Utility mod",
-        highcraft: false
+        highcraft: true
       },
       {
         name: "Advancement Fix",
@@ -1642,7 +1642,7 @@
         tags: ["Fabric", "Client-side", "QoL", "Java"],
         url: "https://github.com/Otterdays/advancement-fix",
         status: "QoL mod",
-        highcraft: false
+        highcraft: true
       },
       {
         name: "Feeshman Deelux",
@@ -1654,7 +1654,7 @@
         tags: ["Fabric", "1.20.1", "Fishing", "HUD"],
         url: "https://github.com/Otterdays/Feeshman-Deelux",
         status: "Experimental mod",
-        highcraft: false
+        highcraft: true
       },
       {
         name: "ChipperChopper",
@@ -1691,18 +1691,6 @@
         url: "https://github.com/Otterdays/Minecraft-Fabric-Sample-Mod",
         status: "Template",
         highcraft: false
-      },
-      {
-        name: "McOtterShaders",
-        category: "tool",
-        type: "Shader Pack",
-        icon: "✨",
-        description:
-          "Custom Minecraft shader work for OptiFine and Iris with GLSL source and project documentation.",
-        tags: ["GLSL", "OptiFine", "Iris", "Visuals"],
-        url: "https://github.com/Otterdays/McOtterShaders",
-        status: "Visual project",
-        highcraft: true
       },
       {
         name: "MC Texture Maker",
