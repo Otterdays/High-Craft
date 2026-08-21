@@ -2,6 +2,17 @@
 
 Single-file community site for HighCraft (Minecraft survival series + Otters MC Studios hub).
 
+## #1 — Caveman ultra (first thing)
+
+**Before any other work:** activate `/caveman ultra`.
+
+- Load + follow the caveman skill at ultra intensity for all replies in this repo
+- Terse compressed prose; full technical accuracy; no fluff; no announcing the mode
+- Code, commits, PR bodies, exact errors: write normal (caveman skill boundaries)
+- Off only if user says `stop caveman` / `normal mode`
+
+This rule beats every rule below when they conflict on communication style.
+
 ## Stack
 
 - Static `index.html` only (inline CSS + JS)
