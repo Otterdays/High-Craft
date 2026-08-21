@@ -1641,7 +1641,7 @@
                 <span>Shared World</span>
               </div>
               <div class="status-cell">
-                <strong>15+</strong>
+                <strong>18+</strong>
                 <span>Studio Projects</span>
               </div>
               <div class="status-cell">
@@ -1818,13 +1818,13 @@
 
               <div class="stack-item">
                 <span>Gameplay</span>
-                <h3>Minecraft Civ Remixed</h3>
+                <h3>Civ Remixed</h3>
                 <p>Economy, jobs, wallets, and payouts that line up with the civilization theme.</p>
               </div>
 
               <div class="stack-item">
                 <span>Companion</span>
-                <h3>MC Companion Map</h3>
+                <h3>Companion Map</h3>
                 <p>A phone-based overhead map companion using a local HTTP API over LAN.</p>
               </div>
 
@@ -1836,7 +1836,7 @@
 
               <div class="stack-item">
                 <span>Utility</span>
-                <h3>MC Helpy Helper</h3>
+                <h3>Helpy Helper</h3>
                 <p>Turns /help into a searchable command browser instead of a wall of text.</p>
               </div>
 
@@ -2241,15 +2241,75 @@
 
     const projects = [
       {
-        name: "BlockPanel V2 Public",
+        name: "A Voxel Christmas",
+        category: "game",
+        type: "Voxel Game",
+        icon: "❄️",
+        description:
+          "Voxel-inspired winter scene with procedural terrain, particles, post-processing, and an optional .NET / WebView2 Windows shell.",
+        tags: ["Three.js", "WebGL", ".NET", "Voxel"],
+        url: "https://github.com/Otterdays/GAME-A-Voxel-Christmas",
+        status: "Playable alpha",
+        highcraft: false
+      },
+      {
+        name: "Block Panel V4",
+        category: "server",
+        type: "Windows App",
+        icon: "🖥️",
+        description:
+          "Native Windows Minecraft Server Control Center — PowerShell + WPF, live console, properties, Modrinth queue. Double-click launch.bat.",
+        tags: ["PowerShell", "WPF", "Windows", "Modrinth"],
+        url: "https://github.com/Otterdays/Block-Panel-V4",
+        status: "Latest panel",
+        highcraft: true
+      },
+      {
+        name: "Block Panel V3",
+        category: "server",
+        type: "Control Plane",
+        icon: "📡",
+        description:
+          "Self-hosted Minecraft control plane for Java and Bedrock servers using Elixir / Phoenix LiveView and PostgreSQL.",
+        tags: ["Elixir", "Phoenix", "PostgreSQL", "LiveView"],
+        url: "https://github.com/Otterdays/Block-Panel-V3",
+        status: "Self-hosted",
+        highcraft: false
+      },
+      {
+        name: "Block Panel V2",
         category: "server",
         type: "Windows App",
         icon: "🧊",
         description:
-          "Public Windows distribution of the native BlockPanel server manager with console control, JAR management, and Modrinth browsing.",
-        tags: ["Tauri", "Rust", "Windows", "Modrinth"],
+          "Native Windows desktop app for managing Minecraft servers with Tauri v2, Rust, React, and TypeScript.",
+        tags: ["Tauri", "Rust", "React", "Windows"],
+        url: "https://github.com/Otterdays/Block-Panel-V2",
+        status: "Native panel",
+        highcraft: false
+      },
+      {
+        name: "BlockPanel V2 Public",
+        category: "server",
+        type: "Windows App",
+        icon: "📦",
+        description:
+          "Public-facing portable Windows release repo and landing site for the Block Panel V2 line.",
+        tags: ["Tauri", "Windows", "Portable", "Modrinth"],
         url: "https://github.com/Otterdays/Block-Panel-V2-Public",
         status: "Portable release",
+        highcraft: false
+      },
+      {
+        name: "Block Panel V1",
+        category: "server",
+        type: "Web Dashboard",
+        icon: "🧱",
+        description:
+          "Browser-based Minecraft dedicated server dashboard (MC-26.1 / Fabric) with server and mod management plus an AI assistant. Original Block Panel line.",
+        tags: ["Fabric", "Dashboard", "AI", "MC-26.1"],
+        url: "https://github.com/Otterdays/Block-Panel-V1",
+        status: "Original panel",
         highcraft: false
       },
       {
@@ -2258,59 +2318,11 @@
         type: "Server Site",
         icon: "🦦",
         description:
-          "GitHub Pages community site for the Otter's Den Minecraft survival server.",
-        tags: ["Server", "GitHub Pages", "HTML"],
+          "Whitelist-only Fabric survival den (Java 26.1) — community site with rules, stack, and join info.",
+        tags: ["Server", "Fabric", "GitHub Pages"],
         url: "https://github.com/Otterdays/Otters-Den-Server",
         status: "Community project",
         highcraft: false
-      },
-      {
-        name: "Minecraft Civ Remixed",
-        category: "mod",
-        type: "Fabric Mod",
-        icon: "🏛️",
-        description:
-          "Civilization and economy add-on with wallets, jobs, onboarding, and optional mining or combat payouts.",
-        tags: ["Fabric", "Economy", "Jobs", "Java"],
-        url: "https://github.com/Otterdays/Minecraft-Civ-Remixed",
-        status: "Gameplay system",
-        highcraft: true
-      },
-      {
-        name: "MC Companion Map",
-        category: "mod",
-        type: "Fabric + Android",
-        icon: "🗺️",
-        description:
-          "Minecraft mod with a local HTTP API and an Android overhead map companion designed to work over LAN.",
-        tags: ["Fabric", "Android", "HTTP API", "LAN"],
-        url: "https://github.com/Otterdays/MC-Companion-Map",
-        status: "Companion tech",
-        highcraft: true
-      },
-      {
-        name: "Mc Core Mod",
-        category: "mod",
-        type: "Core Library",
-        icon: "🧱",
-        description:
-          "Shared Fabric core library with services, event hooks, ready-state dispatch, and update-checking support.",
-        tags: ["Fabric", "Library", "Events", "Java"],
-        url: "https://github.com/Otterdays/Mc-Core-Mod",
-        status: "Foundation",
-        highcraft: true
-      },
-      {
-        name: "MC Helpy Helper",
-        category: "mod",
-        type: "Fabric Mod",
-        icon: "❔",
-        description:
-          "Turns Minecraft's /help command into a searchable command browser instead of a wall of text.",
-        tags: ["Fabric", "UX", "Commands", "Java"],
-        url: "https://github.com/Otterdays/MC-Helpy-Helper",
-        status: "Utility mod",
-        highcraft: true
       },
       {
         name: "Advancement Fix",
@@ -2322,18 +2334,6 @@
         tags: ["Fabric", "Client-side", "QoL", "Java"],
         url: "https://github.com/Otterdays/advancement-fix",
         status: "QoL mod",
-        highcraft: true
-      },
-      {
-        name: "Feeshman Deelux",
-        category: "mod",
-        type: "Fabric Mod",
-        icon: "🎣",
-        description:
-          "Auto-fishing project with HUD overlays, fishing statistics, and achievements for Minecraft 1.20.1.",
-        tags: ["Fabric", "1.20.1", "Fishing", "HUD"],
-        url: "https://github.com/Otterdays/Feeshman-Deelux",
-        status: "Experimental mod",
         highcraft: true
       },
       {
@@ -2349,7 +2349,79 @@
         highcraft: false
       },
       {
-        name: "PaperMC Plugins",
+        name: "Civ Remixed",
+        category: "mod",
+        type: "Fabric Mod",
+        icon: "🏛️",
+        description:
+          "Fabric civ/economy add-on with wallet commands, onboarding messages, jobs, and optional mining or combat payouts.",
+        tags: ["Fabric", "Economy", "Jobs", "Modrinth"],
+        url: "https://github.com/Otterdays/Minecraft-Civ-Remixed",
+        status: "Gameplay system",
+        highcraft: true
+      },
+      {
+        name: "Companion Map",
+        category: "mod",
+        type: "Fabric + Android",
+        icon: "🗺️",
+        description:
+          "Fabric 1.20.1 mod with a local HTTP API plus an Android overhead map companion over LAN.",
+        tags: ["Fabric", "Android", "HTTP API", "LAN"],
+        url: "https://github.com/Otterdays/MC-Companion-Map",
+        status: "Companion tech",
+        highcraft: true
+      },
+      {
+        name: "Core Mod",
+        category: "mod",
+        type: "Core Library",
+        icon: "🧩",
+        description:
+          "Fabric core library plus optional core mod/API jar for shared services, event hooks, ready-state dispatch, and update checks.",
+        tags: ["Fabric", "Library", "Events", "Java"],
+        url: "https://github.com/Otterdays/Mc-Core-Mod",
+        status: "Foundation",
+        highcraft: true
+      },
+      {
+        name: "Fabric Sample Mod",
+        category: "mod",
+        type: "Mod Template",
+        icon: "🧪",
+        description:
+          "Barebones Fabric template for starting a new mod quickly.",
+        tags: ["Fabric", "Template", "Java", "Starter"],
+        url: "https://github.com/Otterdays/Minecraft-Fabric-Sample-Mod",
+        status: "Template",
+        highcraft: false
+      },
+      {
+        name: "Feeshman Deelux",
+        category: "mod",
+        type: "Fabric Mod",
+        icon: "🎣",
+        description:
+          "Fabric 1.20.1 mod focused on auto-fishing, HUD features, stats, and achievements.",
+        tags: ["Fabric", "1.20.1", "Fishing", "HUD"],
+        url: "https://github.com/Otterdays/Feeshman-Deelux",
+        status: "Experimental mod",
+        highcraft: true
+      },
+      {
+        name: "Helpy Helper",
+        category: "mod",
+        type: "Fabric Mod",
+        icon: "❔",
+        description:
+          "Fabric mod that turns /help into a searchable command browser.",
+        tags: ["Fabric", "UX", "Commands", "Java"],
+        url: "https://github.com/Otterdays/MC-Helpy-Helper",
+        status: "Utility mod",
+        highcraft: true
+      },
+      {
+        name: "Paper Plugins",
         category: "mod",
         type: "Plugin Template",
         icon: "📜",
@@ -2361,19 +2433,31 @@
         highcraft: true
       },
       {
-        name: "Fabric Sample Mod",
+        name: "Simple FPS Mod",
         category: "mod",
-        type: "Mod Template",
-        icon: "🧪",
+        type: "Client Mod",
+        icon: "📈",
         description:
-          "Personal ready-to-build Fabric starter project for quickly spinning up new Minecraft mods.",
-        tags: ["Fabric", "Template", "Java", "Starter"],
-        url: "https://github.com/Otterdays/Minecraft-Fabric-Sample-Mod",
-        status: "Template",
+          "Lightweight client-side FPS counter (top-left, once-per-second) with an easy show/hide toggle — Fabric · Minecraft 26.1.2.",
+        tags: ["Fabric", "Client-side", "FPS", "26.1.2"],
+        url: "https://modrinth.com/mod/simple-fps-mod",
+        status: "Modrinth release",
+        highcraft: true
+      },
+      {
+        name: "Otter Shaders",
+        category: "tool",
+        type: "Shader Pack",
+        icon: "✨",
+        description:
+          "Shader pack work for OptiFine and Iris, with GLSL plus repo-side docs.",
+        tags: ["Shaders", "OptiFine", "Iris", "GLSL"],
+        url: "https://github.com/Otterdays/McOtterShaders",
+        status: "Visual pack",
         highcraft: false
       },
       {
-        name: "MC Texture Maker",
+        name: "Texture Maker",
         category: "tool",
         type: "Desktop Tool",
         icon: "🎨",
@@ -2383,18 +2467,6 @@
         url: "https://github.com/Otterdays/MC-Texture-Maker",
         status: "Creator tool",
         highcraft: true
-      },
-      {
-        name: "A Voxel Christmas",
-        category: "game",
-        type: "Voxel Game",
-        icon: "❄️",
-        description:
-          "Procedural Three.js winter scene with voxel terrain, particles, post-processing, and an optional .NET/WebView2 Windows shell.",
-        tags: ["Three.js", "WebGL", ".NET", "Voxel"],
-        url: "https://github.com/Otterdays/GAME-A-Voxel-Christmas",
-        status: "Playable alpha",
-        highcraft: false
       }
     ];
 
@@ -2422,6 +2494,10 @@
           ? `<span class="project-status highcraft-chip">◆ HighCraft Pick</span>`
           : `<span class="project-status">${project.status}</span>`;
 
+        const linkLabel = project.url.includes("modrinth.com")
+          ? "Modrinth ↗"
+          : "GitHub ↗";
+
         card.innerHTML = `
           <div class="project-top">
             <div class="project-icon" aria-hidden="true">${project.icon}</div>
@@ -2440,7 +2516,7 @@
               target="_blank"
               rel="noopener"
             >
-              GitHub ↗
+              ${linkLabel}
             </a>
             ${highcraft}
           </div>
