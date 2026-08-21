@@ -14,6 +14,8 @@ Single-file community site for HighCraft (Minecraft survival series + Otters MC 
 - Keep it one page unless a real feature forces a split
 - Project cards: edit the `projects` array in `index.html`, do not invent a CMS
 - Player roster: edit the `#players` grid in `index.html` (name + gamertag)
+- Server version chip: edit the `#serverVersion` copy in `index.html` (floating; minimize persists via `localStorage`)
+- Recommended modpack: `#modpack` banner + hero “Get Modpack” → [Fabulously Optimized](https://modrinth.com/modpack/fabulously-optimized)
 - Windows-compatible paths
 - Do not add a bundler, framework, or backend without being asked
 - User-facing copy stays in the site's existing voice

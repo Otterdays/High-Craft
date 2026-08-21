@@ -1114,6 +1114,138 @@
       justify-content: center;
     }
 
+    /* —— FLOATING SERVER VERSION —— */
+
+    .version-chip {
+      position: fixed;
+      right: calc(var(--rail) + 14px);
+      bottom: 18px;
+      z-index: 190;
+      max-width: min(320px, calc(100vw - var(--rail) * 2 - 28px));
+    }
+
+    .version-chip-panel {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      border: 2px solid #1a1a1a;
+      background: #fff;
+      box-shadow:
+        inset 2px 2px 0 rgba(255, 255, 255, 0.45),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.12),
+        0 6px 0 rgba(0, 0, 0, 0.28);
+    }
+
+    .version-chip-body {
+      flex: 1;
+      padding: 10px 12px 11px;
+      min-width: 0;
+    }
+
+    .version-chip-kicker {
+      display: block;
+      color: var(--green);
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .version-chip-version {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+
+    .version-chip-toggle {
+      flex-shrink: 0;
+      width: 36px;
+      border: 0;
+      border-left: 2px solid #1a1a1a;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(180deg, #9a9a9a, #6e6e6e);
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+      box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    .version-chip-toggle:hover {
+      filter: brightness(1.06);
+    }
+
+    .version-chip-tab {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 12px 0 10px;
+      border: 2px solid #1a1a1a;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(180deg, #7ec850, var(--green));
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+      box-shadow:
+        inset 2px 2px 0 rgba(255, 255, 255, 0.22),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.28),
+        0 4px 0 rgba(0, 0, 0, 0.28);
+    }
+
+    .version-chip-tab:hover {
+      filter: brightness(1.06);
+    }
+
+    .version-chip-tab-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 1px;
+      background: #c6f28a;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+    }
+
+    .version-chip.is-minimized .version-chip-panel {
+      display: none;
+    }
+
+    .version-chip.is-minimized .version-chip-tab {
+      display: inline-flex;
+    }
+
+    .play-banner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 18px;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border: 1px solid var(--panel-border);
+      border-left: 4px solid var(--orange);
+      background: #fff;
+    }
+
+    .play-banner strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .play-banner p {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .play-banner a:not(.btn) {
+      font-weight: 700;
+    }
+
     /* —— FOOTER —— */
 
     footer {
@@ -1280,6 +1412,19 @@
         width: 100%;
       }
 
+      .play-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .play-banner .btn {
+        width: 100%;
+      }
+
+      .version-chip {
+        right: 12px;
+        bottom: 12px;
+      }
+
       .hero-band {
         padding: 22px 0 28px;
       }
@@ -1342,6 +1487,12 @@
         </p>
         <div class="hero-actions">
           <a href="#season" class="btn btn-primary">Enter HighCraft</a>
+          <a
+            href="https://modrinth.com/modpack/fabulously-optimized"
+            class="btn btn-orange"
+            target="_blank"
+            rel="noopener"
+          >Get Modpack ↗</a>
           <a href="#projects" class="btn btn-secondary">Explore Projects</a>
         </div>
       </div>
@@ -1423,6 +1574,29 @@
                 <strong>∞</strong>
                 <span>Bad Decisions</span>
               </div>
+            </div>
+
+            <div class="play-banner" id="modpack">
+              <div>
+                <strong>Recommended modpack</strong>
+                <p>
+                  Play on HighCraft with
+                  <a
+                    href="https://modrinth.com/modpack/fabulously-optimized"
+                    target="_blank"
+                    rel="noopener"
+                  >Fabulously Optimized</a>
+                  — performance, shaders-ready graphics, and OptiFine-parity features on Fabric. Client-side pack; works on our world.
+                </p>
+              </div>
+              <a
+                class="btn btn-orange"
+                href="https://modrinth.com/modpack/fabulously-optimized"
+                target="_blank"
+                rel="noopener"
+              >
+                Open on Modrinth ↗
+              </a>
             </div>
           </section>
 
@@ -1948,6 +2122,36 @@
     </div>
   </footer>
 
+  <aside
+    id="serverVersion"
+    class="version-chip"
+    aria-label="Server Minecraft version"
+  >
+    <div class="version-chip-panel">
+      <div class="version-chip-body">
+        <span class="version-chip-kicker">Server running</span>
+        <span class="version-chip-version">Java 26.3 · Snapshot 9</span>
+      </div>
+      <button
+        type="button"
+        class="version-chip-toggle"
+        id="versionChipMinimize"
+        aria-label="Minimize server version"
+        title="Minimize"
+      >−</button>
+    </div>
+    <button
+      type="button"
+      class="version-chip-tab"
+      id="versionChipExpand"
+      aria-label="Show server version: Java 26.3 Snapshot 9"
+      title="Show server version"
+    >
+      <span class="version-chip-tab-dot" aria-hidden="true"></span>
+      Java 26.3
+    </button>
+  </aside>
+
   <script>
     /*
       ================================================================
@@ -2198,6 +2402,31 @@
     } else {
       revealEls.forEach(el => el.classList.add("is-in"));
     }
+
+    const versionChip = document.getElementById("serverVersion");
+    const versionMinimize = document.getElementById("versionChipMinimize");
+    const versionExpand = document.getElementById("versionChipExpand");
+    const versionStorageKey = "hc-version-chip-minimized";
+
+    function setVersionChipMinimized(minimized) {
+      versionChip.classList.toggle("is-minimized", minimized);
+      try {
+        localStorage.setItem(versionStorageKey, minimized ? "1" : "0");
+      } catch (err) {
+        /* private mode / blocked storage — chip still works in-session */
+      }
+    }
+
+    try {
+      if (localStorage.getItem(versionStorageKey) === "1") {
+        setVersionChipMinimized(true);
+      }
+    } catch (err) {
+      /* ignore */
+    }
+
+    versionMinimize.addEventListener("click", () => setVersionChipMinimized(true));
+    versionExpand.addEventListener("click", () => setVersionChipMinimized(false));
   </script>
 
 </body>

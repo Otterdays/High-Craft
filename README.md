@@ -22,7 +22,14 @@
 
 HighCraft is a long-term survival series and community world — plus the public landing page for [Otters MC Studios](https://github.com/Otterdays/Minecraft-Stuffs) mods, tools, and experiments that grow up around it.
 
-The site leans **Minecraft Wiki** structure (light content panels, clear sections) with **classic Minecraft** framing (dirt header, stone + wood side rails, beveled buttons) and a full-bleed game-landing hero.
+The site leans **Minecraft Wiki** structure (light content panels, clear sections) with **classic Minecraft** framing (dirt header, stone + wood side rails, beveled buttons) and a full-bleed game-landing hero. A floating **server version** chip stays on-screen while you scroll (minimize collapses it to a tab — it never fully goes away).
+
+## Play with us
+
+| | |
+|--|--|
+| **Server** | Java **26.3** · Snapshot **9** |
+| **Modpack** | [Fabulously Optimized](https://modrinth.com/modpack/fabulously-optimized) (Fabric — recommended client pack) |
 
 ## The Boys (so far)
 
@@ -63,6 +70,8 @@ No install. No build. No backend.
 4. `highcraft: true` → shows under HighCraft Picks  
 
 **Crew roster** — `#players` grid in `index.html` (display name + gamertag)
+
+**Server version chip** — `#serverVersion` in `index.html` (update the version string when the world bumps)
 
 **Imagery** — drop files in `assets/images/` and point the hero / gallery / season blocks at them
 
