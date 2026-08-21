@@ -30,7 +30,7 @@ This rule beats every rule below when they conflict on communication style.
 - Windows-compatible paths
 - Do not add a bundler, framework, or backend without being asked
 - User-facing copy stays in the site's existing voice
-- Visual language: Minecraft wiki light panels + classic dirt/stone/wood framing; keep the game-landing hero
+- Visual language: Minecraft wiki light panels + classic dirt/stone/wood framing (pixel-tiled cobble + oak rails); keep the game-landing hero
 
 ## After every change (required)
 

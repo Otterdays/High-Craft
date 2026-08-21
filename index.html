@@ -44,7 +44,8 @@
       --wood-dark: #5c3a1a;
       --wood-light: #a67c4a;
       --wood-mid: #7a4e28;
-      --rail: 56px;
+      --rail: 64px;
+      --rail-tile: 32px;
       --max: 1100px;
       --wiki-radius: 2px;
       --font-display: "Pixelify Sans", sans-serif;
@@ -83,7 +84,7 @@
       background-size: auto, 64px 64px, 64px 64px;
     }
 
-    /* —— SIDE RAILS (stone outer + wood inner) —— */
+    /* —— SIDE RAILS (cobble outer + log post + oak planks) —— */
 
     .side-rail {
       position: fixed;
@@ -93,75 +94,133 @@
       width: var(--rail);
       display: flex;
       pointer-events: none;
-      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+      outline: 2px solid #1a1a1a;
+      outline-offset: -2px;
+      box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(0, 0, 0, 0.35);
     }
 
     .side-rail-left {
       left: 0;
+      box-shadow:
+        inset -3px 0 8px rgba(0, 0, 0, 0.28),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.45),
+        4px 0 14px rgba(0, 0, 0, 0.28);
     }
 
     .side-rail-right {
       right: 0;
       flex-direction: row-reverse;
+      box-shadow:
+        inset 3px 0 8px rgba(0, 0, 0, 0.28),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.45),
+        -4px 0 14px rgba(0, 0, 0, 0.28);
+    }
+
+    .rail-stone,
+    .rail-post,
+    .rail-wood {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+      background-repeat: repeat;
+      background-size: var(--rail-tile) var(--rail-tile);
     }
 
     .rail-stone {
-      width: 22px;
+      width: 28px;
       flex-shrink: 0;
-      border-inline: 2px solid #3a3a3a;
-      background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.18), transparent 40%, rgba(255, 255, 255, 0.08)),
-        repeating-linear-gradient(
-          0deg,
-          var(--stone-light) 0 14px,
-          var(--stone) 14px 16px,
-          var(--stone-dark) 16px 30px,
-          #5a5a5a 30px 32px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          var(--stone) 0 10px,
-          var(--stone-dark) 10px 12px,
-          var(--stone-light) 12px 22px
-        );
-      background-size: auto, 100% 32px, 22px 100%;
+      border-inline: 2px solid #2a2a2a;
+      background-color: var(--stone);
+      background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 45%, rgba(255, 255, 255, 0.1)),
+        radial-gradient(ellipse at 50% 20%, transparent 40%, rgba(0, 0, 0, 0.18) 100%),
+        url("assets/images/textures/stone.png"),
+        url("assets/images/textures/cobblestone.png");
+      background-size:
+        auto,
+        100% 120%,
+        var(--rail-tile) var(--rail-tile),
+        var(--rail-tile) var(--rail-tile);
+      background-blend-mode: normal, multiply, soft-light, normal;
+      background-position: 0 0, 0 0, 8px 12px, 0 0;
       box-shadow:
-        inset 2px 0 0 rgba(255, 255, 255, 0.12),
-        inset -2px 0 0 rgba(0, 0, 0, 0.28);
+        inset 2px 0 0 rgba(255, 255, 255, 0.16),
+        inset -2px 0 0 rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.22);
+    }
+
+    .rail-post {
+      width: 4px;
+      flex-shrink: 0;
+      border-inline: 1px solid #1a1008;
+      background-color: var(--wood-dark);
+      background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 50%, rgba(255, 255, 255, 0.08)),
+        url("assets/images/textures/oak_log.png");
+      background-size: auto, var(--rail-tile) var(--rail-tile);
+      box-shadow:
+        inset 1px 0 0 rgba(255, 255, 255, 0.12),
+        inset -1px 0 0 rgba(0, 0, 0, 0.45);
     }
 
     .rail-wood {
       flex: 1;
       border-inline: 2px solid #2a1808;
-      background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent 35%, rgba(255, 255, 255, 0.06)),
-        repeating-linear-gradient(
-          0deg,
-          var(--wood-light) 0 20px,
-          var(--wood) 20px 22px,
-          var(--wood-mid) 22px 42px,
-          var(--wood-dark) 42px 44px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          transparent 0 6px,
-          rgba(0, 0, 0, 0.12) 6px 7px,
-          transparent 7px 18px,
-          rgba(255, 255, 255, 0.06) 18px 19px,
-          transparent 19px 28px
-        );
-      background-size: auto, 100% 44px, 28px 100%;
+      background-color: var(--wood);
+      background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 40%, rgba(255, 255, 255, 0.07)),
+        radial-gradient(ellipse at 50% 80%, transparent 35%, rgba(0, 0, 0, 0.16) 100%),
+        url("assets/images/textures/oak_planks.png");
+      background-size:
+        auto,
+        100% 140%,
+        var(--rail-tile) var(--rail-tile);
       box-shadow:
-        inset 2px 0 0 rgba(255, 255, 255, 0.1),
-        inset -2px 0 0 rgba(0, 0, 0, 0.35);
+        inset 2px 0 0 rgba(255, 255, 255, 0.12),
+        inset -2px 0 0 rgba(0, 0, 0, 0.42),
+        inset 0 2px 0 rgba(255, 255, 255, 0.06),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.25);
     }
 
     .side-rail-left .rail-stone {
       border-left: 0;
     }
 
+    .side-rail-left .rail-wood {
+      border-right: 0;
+    }
+
     .side-rail-right .rail-stone {
       border-right: 0;
+    }
+
+    .side-rail-right .rail-wood {
+      border-left: 0;
+    }
+
+    /* Mirror lighting so each rail feels lit from page center */
+    .side-rail-right .rail-stone {
+      background-image:
+        linear-gradient(270deg, rgba(0, 0, 0, 0.28), transparent 45%, rgba(255, 255, 255, 0.1)),
+        radial-gradient(ellipse at 50% 20%, transparent 40%, rgba(0, 0, 0, 0.18) 100%),
+        url("assets/images/textures/stone.png"),
+        url("assets/images/textures/cobblestone.png");
+    }
+
+    .side-rail-right .rail-post {
+      background-image:
+        linear-gradient(270deg, rgba(0, 0, 0, 0.35), transparent 50%, rgba(255, 255, 255, 0.08)),
+        url("assets/images/textures/oak_log.png");
+    }
+
+    .side-rail-right .rail-wood {
+      background-image:
+        linear-gradient(270deg, rgba(0, 0, 0, 0.22), transparent 40%, rgba(255, 255, 255, 0.07)),
+        radial-gradient(ellipse at 50% 80%, transparent 35%, rgba(0, 0, 0, 0.16) 100%),
+        url("assets/images/textures/oak_planks.png");
     }
 
     a {
@@ -1325,11 +1384,16 @@
 
     @media (max-width: 900px) {
       :root {
-        --rail: 36px;
+        --rail: 40px;
+        --rail-tile: 16px;
       }
 
       .rail-stone {
-        width: 14px;
+        width: 16px;
+      }
+
+      .rail-post {
+        width: 4px;
       }
 
       .feature-row,
@@ -1436,10 +1500,12 @@
 
   <div class="side-rail side-rail-left" aria-hidden="true">
     <div class="rail-stone"></div>
+    <div class="rail-post"></div>
     <div class="rail-wood"></div>
   </div>
   <div class="side-rail side-rail-right" aria-hidden="true">
     <div class="rail-stone"></div>
+    <div class="rail-post"></div>
     <div class="rail-wood"></div>
   </div>
 

@@ -22,7 +22,7 @@
 
 HighCraft is a long-term survival series and community world — plus the public landing page for [Otters MC Studios](https://github.com/Otterdays/Minecraft-Stuffs) mods, tools, and experiments that grow up around it.
 
-The site leans **Minecraft Wiki** structure (light content panels, clear sections) with **classic Minecraft** framing (dirt header, stone + wood side rails, beveled buttons) and a full-bleed game-landing hero. A floating **server version** chip stays on-screen while you scroll (minimize collapses it to a tab — it never fully goes away).
+The site leans **Minecraft Wiki** structure (light content panels, clear sections) with **classic Minecraft** framing (dirt header, pixel-tiled cobblestone + oak-log post + oak-plank side rails, beveled buttons) and a full-bleed game-landing hero. A floating **server version** chip stays on-screen while you scroll (minimize collapses it to a tab — it never fully goes away).
 
 ## Play with us
 
@@ -46,6 +46,7 @@ More slots on the site stay open until the rest of the crew is named.
 High-Craft/
 ├── index.html          # entire site (HTML + CSS + JS)
 ├── assets/images/      # promo art + sample shots
+│   └── textures/       # 16×16 rail tiles (cobble, stone, oak planks, oak log)
 ├── AGENTS.md           # rules for AI / contributors
 └── README.md           # you are here
 ```
