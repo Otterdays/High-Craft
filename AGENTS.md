@@ -2,6 +2,9 @@
 
 Single-file community site for HighCraft (Minecraft survival series + Otters MC Studios hub).
 
+**Studio project hub (public site):** https://otterdays.github.io/Minecraft-Stuffs/  
+(Repo: https://github.com/Otterdays/Minecraft-Stuffs — link hub CTAs to the Pages URL, not the repo, unless the user asks for GitHub.)
+
 ## #1 — Caveman ultra (first thing)
 
 **Before any other work:** activate `/caveman ultra`.

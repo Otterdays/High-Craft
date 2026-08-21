@@ -11,16 +11,17 @@
 
 <p align="center">
   <a href="https://otterdays.github.io/High-Craft/"><img src="https://img.shields.io/badge/Live_site-GitHub_Pages-3c8527?style=for-the-badge&logo=github" alt="Live site" /></a>
-  <a href="https://github.com/Otterdays/Minecraft-Stuffs"><img src="https://img.shields.io/badge/Otters_MC_Studios-Project_hub-8b5a2b?style=for-the-badge" alt="Otters MC Studios" /></a>
+  <a href="https://otterdays.github.io/Minecraft-Stuffs/"><img src="https://img.shields.io/badge/Otters_MC_Studios-Project_hub-8b5a2b?style=for-the-badge" alt="Otters MC Studios" /></a>
 </p>
 
-**Live:** [otterdays.github.io/High-Craft](https://otterdays.github.io/High-Craft/)
+**Live:** [otterdays.github.io/High-Craft](https://otterdays.github.io/High-Craft/)  
+**Project hub:** [otterdays.github.io/Minecraft-Stuffs](https://otterdays.github.io/Minecraft-Stuffs/)
 
 ---
 
 ## What this is
 
-HighCraft is a long-term survival series and community world — plus the public landing page for [Otters MC Studios](https://github.com/Otterdays/Minecraft-Stuffs) mods, tools, and experiments that grow up around it.
+HighCraft is a long-term survival series and community world — plus the public landing page for [Otters MC Studios](https://otterdays.github.io/Minecraft-Stuffs/) mods, tools, and experiments that grow up around it.
 
 The site leans **Minecraft Wiki** structure (light content panels, clear sections) with **classic Minecraft** framing (dirt header, pixel-tiled cobblestone + oak-log post + oak-plank side rails, beveled buttons) and a full-bleed game-landing hero. A floating **server version** chip stays on-screen while you scroll (minimize collapses it to a tab — it never fully goes away).
 
