@@ -1497,8 +1497,26 @@
         bottom: 12px;
       }
 
+      .hero {
+        min-height: min(64vh, 540px);
+      }
+
       .hero-band {
-        padding: 22px 0 28px;
+        padding: 18px 0 22px;
+      }
+
+      .hero-band-inner {
+        gap: 12px;
+      }
+
+      .hero-band h1 {
+        font-size: clamp(1.75rem, 8.5vw, 2.3rem);
+        line-height: 1.08;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+      }
+
+      .hero-band p {
+        font-size: 0.95rem;
       }
     }
   </style>
