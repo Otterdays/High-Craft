@@ -1313,6 +1313,30 @@
       font-weight: 700;
     }
 
+    .join-banner {
+      border-left-color: var(--green);
+    }
+
+    .server-ip-line {
+      margin: 6px 0 8px;
+    }
+
+    .server-ip {
+      display: inline-block;
+      padding: 2px 6px;
+      border: 1px solid var(--panel-border);
+      background: #f4f4f4;
+      color: var(--green);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 1.02rem;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .join-banner .btn {
+      min-width: 118px;
+    }
+
     /* —— FOOTER —— */
 
     footer {
@@ -1546,6 +1570,7 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary">
+        <a href="#join">Join</a>
         <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
         <a href="#projects">Projects</a>
@@ -1578,7 +1603,7 @@
           only this crew could make.
         </p>
         <div class="hero-actions">
-          <a href="#season" class="btn btn-primary">Enter HighCraft</a>
+          <a href="#join" class="btn btn-primary">Join the World</a>
           <a
             href="https://modrinth.com/modpack/fabulously-optimized"
             class="btn btn-orange"
@@ -1597,6 +1622,7 @@
 
         <div class="wiki-tabs" aria-label="Page sections">
           <a class="active" href="#">Main Page</a>
+          <a href="#join">Join</a>
           <a href="#about">About</a>
           <a href="#gallery">Gallery</a>
           <a href="#projects">Projects</a>
@@ -1666,6 +1692,23 @@
                 <strong>∞</strong>
                 <span>Bad Decisions</span>
               </div>
+            </div>
+
+            <div class="play-banner join-banner" id="join">
+              <div>
+                <strong>Java address</strong>
+                <p class="server-ip-line">
+                  <code class="server-ip" id="serverIp">afykirby.aternos.me</code>
+                </p>
+                <p>
+                  Free hosted on Aternos for now. If it's offline, message the
+                  host to start it up — Aternos shuts inactive servers down on
+                  the free plan to save resources on their end.
+                </p>
+              </div>
+              <button type="button" class="btn btn-primary" id="copyIpBtn">
+                Copy IP
+              </button>
             </div>
 
             <div class="play-banner" id="modpack">
@@ -2596,6 +2639,25 @@
 
     versionMinimize.addEventListener("click", () => setVersionChipMinimized(true));
     versionExpand.addEventListener("click", () => setVersionChipMinimized(false));
+
+    const serverIp = document.getElementById("serverIp");
+    const copyIpBtn = document.getElementById("copyIpBtn");
+
+    if (copyIpBtn && serverIp) {
+      copyIpBtn.addEventListener("click", async () => {
+        const address = serverIp.textContent.trim();
+        try {
+          await navigator.clipboard.writeText(address);
+          copyIpBtn.textContent = "Copied";
+        } catch (err) {
+          console.error("Clipboard copy failed:", err);
+          copyIpBtn.textContent = "Select the IP";
+        }
+        window.setTimeout(() => {
+          copyIpBtn.textContent = "Copy IP";
+        }, 1600);
+      });
+    }
   </script>
 
 </body>

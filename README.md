@@ -29,8 +29,12 @@ The site leans **Minecraft Wiki** structure (light content panels, clear section
 
 | | |
 |--|--|
+| **Address** | `afykirby.aternos.me` |
 | **Server** | Java **26.3** · Snapshot **9** |
 | **Modpack** | [Fabulously Optimized](https://modrinth.com/modpack/fabulously-optimized) (Fabric — recommended client pack) |
+| **Host** | Free on [Aternos](https://aternos.org/) for now. If the world is offline, message the host to start it up — Aternos shuts inactive servers down on the free plan to save resources on their end. |
+
+The same address and note live in the `#join` banner on `index.html`. Keep README and the site in sync when the IP or host changes.
 
 ## The Boys (so far)
 
@@ -72,6 +76,8 @@ No install. No build. No backend.
 4. `highcraft: true` → shows under HighCraft Picks  
 
 **Crew roster** — `#players` grid in `index.html` (display name + gamertag)
+
+**Server IP** — `#join` banner in `index.html` (address + Aternos note). Mirror the same values in this README.
 
 **Server version chip** — `#serverVersion` in `index.html` (update the version string when the world bumps)
 
