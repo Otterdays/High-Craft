@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>High Craft 2D V1 — internal lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600;700&family=Source+Sans+3:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="game.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark" aria-hidden="true">H</span>
+      HighCraft
+    </a>
+    <div class="topbar-meta">
+      <span class="chip">Internal lab</span>
+      <a class="crumb" href="../index.html">Games</a>
+      <span class="chip ok">2D V1</span>
+    </div>
+  </header>
+
+  <main class="stage">
+    <canvas id="view" width="480" height="270" tabindex="0">Canvas required.</canvas>
+
+    <div class="hud" id="hud">
+      <div class="hud-top">
+        <div>
+          <div id="cash" class="green">Green: 40</div>
+          <div id="status">Stash runner</div>
+        </div>
+        <div id="hint">A/D move · Space jump · LMB mine · RMB place · E deal · C consume</div>
+      </div>
+      <div class="haze-bar" title="Haze" aria-hidden="true"><span id="hazeFill"></span></div>
+      <div class="prompt" id="prompt" hidden></div>
+      <div class="hotbar" id="hotbar"></div>
+    </div>
+
+    <div class="touch" id="touch">
+      <div class="pad">
+        <button type="button" data-hold="left">◀</button>
+        <button type="button" data-hold="right">▶</button>
+        <button type="button" data-hold="jump">▲</button>
+      </div>
+      <div class="pad">
+        <button type="button" id="touchMine">Mine</button>
+        <button type="button" id="touchPlace">Put</button>
+        <button type="button" id="touchUse">Use</button>
+        <button type="button" id="touchDeal">Deal</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="start">
+      <div class="card">
+        <h1>High Craft 2D V1</h1>
+        <p>
+          Internal sketch. Not a real game. Cartoon stoop: dig nugs,
+          sell to The Regular, get ripped off by The Plug, or consume
+          your margins for a haze jump. Fiction. No how-to.
+        </p>
+        <div class="btn-row">
+          <button type="button" id="dropIn">Drop in</button>
+          <a class="btn ghost" href="../index.html">Back to Games</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="shop" hidden>
+      <div class="card">
+        <h2>The Plug</h2>
+        <p>Ripped-off rates. Digging prints product. This guy does not.</p>
+        <div class="btn-row">
+          <button type="button" id="buyNug">Buy Nug — 18 Green</button>
+          <button type="button" id="buyResin">Buy Resin — 32 Green</button>
+          <button type="button" class="ghost" id="shopClose">Walk away</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="pause" hidden>
+      <div class="card">
+        <h2>Paused</h2>
+        <p>World autosaves in this browser. Nobody is coming back, but still.</p>
+        <div class="btn-row">
+          <button type="button" id="resume">Resume</button>
+          <button type="button" class="ghost" id="newWorld">New hillside</button>
+          <a class="btn ghost" href="../index.html">Quit to Games</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="hc2d-core.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

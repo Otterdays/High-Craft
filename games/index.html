@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Games — HighCraft internal lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600;700&family=Source+Sans+3:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bedrock: #2b2b2b;
+      --dirt: #8b6914;
+      --dirt-dark: #5c4510;
+      --dirt-light: #a67c1a;
+      --panel: #f8f9fa;
+      --panel-2: #eaecf0;
+      --panel-border: #a2a9b1;
+      --ink: #202122;
+      --muted: #54595d;
+      --link: #3366cc;
+      --green: #3c8527;
+      --wood: #8b5a2b;
+      --rail: 64px;
+      --rail-tile: 32px;
+      --max: 900px;
+      --font-display: "Pixelify Sans", sans-serif;
+      --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      padding-inline: var(--rail);
+      font-family: var(--font-body);
+      color: var(--ink);
+      line-height: 1.55;
+      background-color: var(--bedrock);
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)),
+        repeating-linear-gradient(0deg, #323232 0 16px, #2a2a2a 16px 32px),
+        repeating-linear-gradient(90deg, #2f2f2f 0 16px, #262626 16px 32px);
+    }
+
+    .side-rail {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      z-index: 200;
+      width: var(--rail);
+      display: flex;
+      pointer-events: none;
+      outline: 2px solid #1a1a1a;
+      outline-offset: -2px;
+    }
+
+    .side-rail-left { left: 0; }
+    .side-rail-right { right: 0; flex-direction: row-reverse; }
+
+    .rail-stone,
+    .rail-post,
+    .rail-wood {
+      image-rendering: pixelated;
+      background-repeat: repeat;
+      background-size: var(--rail-tile) var(--rail-tile);
+    }
+
+    .rail-stone {
+      width: 28px;
+      background-color: #8b8b8b;
+      background-image: url("../assets/images/textures/cobblestone.png");
+    }
+
+    .rail-post {
+      width: 4px;
+      background-color: #5c3a1a;
+      background-image: url("../assets/images/textures/oak_log.png");
+    }
+
+    .rail-wood {
+      flex: 1;
+      background-color: var(--wood);
+      background-image: url("../assets/images/textures/oak_planks.png");
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 4px solid #3d2e0a;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 40%),
+        repeating-linear-gradient(
+          90deg,
+          var(--dirt) 0 18px,
+          var(--dirt-dark) 18px 20px,
+          var(--dirt-light) 20px 38px,
+          #6e5210 38px 40px
+        );
+    }
+
+    .topbar-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f5f0d8;
+      text-decoration: none;
+      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+    }
+
+    .brand:hover { color: #fff; text-decoration: none; }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #2a1c05;
+      background: linear-gradient(180deg, #7ec850, #4a8a28);
+      color: #14210c;
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      display: block;
+      margin-top: 2px;
+      color: #efe4b0;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .games-btn {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 14px;
+      border: 2px solid #1a1a1a;
+      background: linear-gradient(180deg, #7ec850, var(--green));
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .games-btn:hover { filter: brightness(1.06); text-decoration: none; }
+
+    .shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 24px auto 48px;
+      border: 1px solid var(--panel-border);
+      background: var(--panel);
+      box-shadow: 0 1px 0 #fff inset;
+    }
+
+    .wiki-body { padding: 28px 28px 36px; }
+
+    .kicker {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 6px 0 10px;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    .lede { color: var(--muted); max-width: 62ch; }
+
+    .stamp {
+      display: inline-block;
+      margin: 14px 0 22px;
+      padding: 4px 10px;
+      border: 2px solid #4a1020;
+      background: #4a1020;
+      color: #ffd0d8;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .game-card {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border: 1px solid var(--panel-border);
+      background: #fff;
+    }
+
+    .game-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+    }
+
+    .game-card p { color: var(--muted); }
+
+    .play {
+      width: fit-content;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      margin-top: 8px;
+      padding: 0 18px;
+      border: 2px solid #1a1a1a;
+      background: linear-gradient(180deg, #7ec850, var(--green));
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .play:hover { filter: brightness(1.06); text-decoration: none; }
+
+    .note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    a { color: var(--link); }
+
+    @media (max-width: 700px) {
+      :root { --rail: 0px; }
+      .side-rail { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="side-rail side-rail-left" aria-hidden="true">
+    <div class="rail-stone"></div>
+    <div class="rail-post"></div>
+    <div class="rail-wood"></div>
+  </div>
+  <div class="side-rail side-rail-right" aria-hidden="true">
+    <div class="rail-stone"></div>
+    <div class="rail-post"></div>
+    <div class="rail-wood"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">
+        <div class="brand-mark" aria-hidden="true">H</div>
+        <div>
+          <div class="brand-name">HIGHCRAFT</div>
+          <span class="brand-sub">Internal lab</span>
+        </div>
+      </a>
+      <a class="games-btn" href="index.html" aria-current="page">Games</a>
+    </div>
+  </header>
+
+  <div class="shell">
+    <div class="wiki-body">
+      <p class="kicker">Otters MC Studios</p>
+      <h1>Games</h1>
+      <p class="lede">
+        Internal sketches. Not releases. Not for a playerbase.
+        The HighCraft landing stays the Minecraft series; this folder is the junk drawer.
+      </p>
+      <span class="stamp">Internal only · nobody is supposed to play these</span>
+
+      <article class="game-card">
+        <h2>High Craft 2D V1</h2>
+        <p>
+          Terraria-shaped dig toy with a cartoon stoop economy: mine nugs,
+          sell to The Regular, buy from The Plug (rip-off), or consume a nug
+          for a haze jump. Fiction. Not a how-to.
+        </p>
+        <a class="play" href="high-craft-2d-v1/index.html">Open High Craft 2D V1</a>
+      </article>
+
+      <p class="note">
+        Design intent lives in repo
+        <code>DOCS/GDD_HIGH_CRAFT_2D.md</code>.
+        Add another lab toy by dropping a folder under <code>games/</code>
+        and a card on this page.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

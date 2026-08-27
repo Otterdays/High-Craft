@@ -49,12 +49,21 @@ More slots on the site stay open until the rest of the crew is named.
 
 ```
 High-Craft/
-├── index.html          # entire site (HTML + CSS + JS)
-├── assets/images/      # promo art + sample shots
-│   └── textures/       # 16×16 rail tiles (cobble, stone, oak planks, oak log)
-├── AGENTS.md           # rules for AI / contributors
-└── README.md           # you are here
+├── index.html                 # public landing (HTML + CSS + JS)
+├── games/
+│   ├── index.html             # internal lab index
+│   └── high-craft-2d-v1/      # sketch: index.html, game.css, game.js, hc2d-core.js
+├── tests/                     # Node suite only (no browser). `node tests/run.js`
+├── assets/images/             # promo art + sample shots
+│   └── textures/              # 16×16 rail tiles (cobble, stone, oak planks, oak log)
+├── DOCS/                      # internal notes (GDD, scratchpad)
+├── AGENTS.md                  # rules for AI / contributors
+└── README.md                  # you are here
 ```
+
+**Games** in the top bar opens the lab. Those pages are internal sketches, not a HighCraft release. The 2D toy is not part of the public series pitch.
+
+Same static rules: no install, no build, no backend. GitHub Pages from `main` / root. No Actions. Relative links only.
 
 ## Run locally
 
@@ -66,14 +75,25 @@ npx --yes serve .
 
 No install. No build. No backend.
 
+**Script tests (agents: this is the only allowed check):**
+
+```powershell
+node tests/run.js
+```
+
+Layer 1 tests the harness. Layer 2 tests High Craft 2D core. No browser tests.
+
 ## Edit without breaking the vibe
 
 **Studio project cards** — `projects` array near the bottom of `index.html`
 
 1. Copy an object  
-2. Set name, description, tags, GitHub URL  
+2. Set name, description, tags, URL  
 3. `category`: `server` | `mod` | `tool` | `game`  
 4. `highcraft: true` → shows under HighCraft Picks  
+5. In-repo pages (High Craft 2D): relative `url` + `linkLabel: "Play"` — not a GitHub link  
+
+**Internal games lab** — `games/index.html` listing + a folder per toy. High Craft 2D V1 is `games/high-craft-2d-v1/` and also a **HighCraft Picks** card on the landing. Keep dealing copy off the hero. Design notes in `DOCS/GDD_HIGH_CRAFT_2D.md`.
 
 **Crew roster** — `#players` grid in `index.html` (display name + gamertag)
 

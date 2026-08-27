@@ -352,6 +352,15 @@
       text-decoration: underline;
     }
 
+    .games-btn {
+      flex-shrink: 0;
+      min-height: 36px;
+      padding: 0 14px;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
     /* —— HERO —— */
 
     .hero {
@@ -1579,6 +1588,7 @@
         <a href="#players">The Boys</a>
         <a href="#rules">Rules</a>
       </nav>
+      <a class="btn btn-primary games-btn" href="games/index.html">Games</a>
     </div>
   </header>
 
@@ -2303,9 +2313,23 @@
       2. Change its values.
       3. Choose category: server | mod | tool | game
       4. Set highcraft: true if you want it in "HighCraft Picks".
+      5. Same-site toys: relative url + linkLabel (example: Play). No GitHub ↗.
     */
 
     const projects = [
+      {
+        name: "High Craft 2D V1",
+        category: "game",
+        type: "2D Sandbox",
+        icon: "🌿",
+        description:
+          "The boys' in-browser HighCraft toy — Terraria-shaped digging, a hillside shack, and a cartoon stoop economy. Vanilla HTML/CSS/JS on GitHub Pages. Not Minecraft. Not a real product. Still ours.",
+        tags: ["HTML", "Canvas", "2D", "GitHub Pages"],
+        url: "games/high-craft-2d-v1/",
+        linkLabel: "Play",
+        status: "Lab sketch",
+        highcraft: true
+      },
       {
         name: "A Voxel Christmas",
         category: "game",
@@ -2560,9 +2584,15 @@
           ? `<span class="project-status highcraft-chip">◆ HighCraft Pick</span>`
           : `<span class="project-status">${project.status}</span>`;
 
-        const linkLabel = project.url.includes("modrinth.com")
-          ? "Modrinth ↗"
-          : "GitHub ↗";
+        const isHttp = /^https?:\/\//i.test(project.url);
+        const linkLabel = project.linkLabel
+          ? project.linkLabel
+          : project.url.includes("modrinth.com")
+            ? "Modrinth ↗"
+            : "GitHub ↗";
+        const linkAttrs = isHttp
+          ? 'target="_blank" rel="noopener"'
+          : "";
 
         card.innerHTML = `
           <div class="project-top">
@@ -2579,8 +2609,7 @@
             <a
               class="project-link"
               href="${project.url}"
-              target="_blank"
-              rel="noopener"
+              ${linkAttrs}
             >
               ${linkLabel}
             </a>
