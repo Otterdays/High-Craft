@@ -30,7 +30,7 @@ This rule beats every rule below when they conflict on communication style.
 - Player roster: edit the `#players` grid in `index.html` (name + gamertag)
 - Server version chip: edit the `#serverVersion` copy in `index.html` (floating; minimize persists via `localStorage`)
 - Server IP: `#join` banner in `index.html` and README **Play with us** — currently `afykirby.aternos.me` (Aternos free host). If the world is offline, players should message the host to start it (free-plan idle shutdown). Update site + README together.
-- Recommended modpack: `#modpack` banner + hero “Get Modpack” → [Fabulously Optimized](https://modrinth.com/modpack/fabulously-optimized)
+- Recommended modpack: `#modpack` banner + hero “Get Modpack” → [Fabulously Optimized](https://modrinth.com/modpack/fabulously-optimized). Note in the banner + README that the pack is most likely still on current stable (currently Java **26.2**), not the snapshot world. Update that number when stable bumps.
 - Windows-compatible paths
 - Do not add a bundler, framework, or backend without being asked
 - User-facing copy stays in the site's existing voice
